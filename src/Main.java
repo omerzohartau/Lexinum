@@ -66,7 +66,7 @@ public class Main {
         }
     }
     static void kickPlayer(Scanner sc, List<Participant> participantList){
-        System.out.print("Enter player name");
+        System.out.print("Enter player name:");
         String name = sc.nextLine();
         Participant toRemove;
         for(Participant p: participantList){
