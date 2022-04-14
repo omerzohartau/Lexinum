@@ -23,8 +23,11 @@ public class Main {
             else if(input.equals("new")){
                 System.out.print("Which list will it be?");
                 input = sc.nextLine();
-                if(input == "1"){
-                    riddle = new Riddle1();
+                switch(input){
+                    case "1": riddle = new Riddle1();break;
+                    case "2": riddle = new Riddle2();break;
+                    case "3": riddle = new Riddle3();break;
+                    default:break;
                 }
                 getCodes(sc, participants);
             }
@@ -106,6 +109,8 @@ public class Main {
         line = reader.readLine();
         switch (line){
             case "1": riddle = new Riddle1();break;
+            case "2": riddle = new Riddle2();break;
+            case "3": riddle = new Riddle3();break;
             default: riddle = null;break;
         }
         while((line = reader.readLine()) != null){
@@ -132,6 +137,12 @@ public class Main {
         String toWrite = "";
         if (riddle instanceof Riddle1) {
             toWrite += "1" + System.lineSeparator();
+        }
+        else if(riddle instanceof Riddle2){
+            toWrite += "2" + System.lineSeparator();
+        }
+        else if(riddle instanceof Riddle3){
+            toWrite += "3" + System.lineSeparator();
         }
         for(Participant p : participantList){
             toWrite += p.getID() + "," + p.getName() + "," + p.getNumber() + "," + p.getCurrentCode() + System.lineSeparator();
